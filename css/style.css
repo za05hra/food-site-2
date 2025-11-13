@@ -1,0 +1,383 @@
+/*IN THE NAME IF ALLAH
+YA ALI YA ZAHRA*/
+
+:root {
+  --cream-bg: rgba(255, 248, 231, 0.9);
+  --icon-color: #333;
+  --active-color: rgba(92, 219, 92, 0.4);
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --dark-bg: #222;
+  --light-text: #eee;
+}
+
+/* آیکون‌های پس‌زمینه
+.background-icons {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+} */
+
+/* پایه‌ها */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cream-bg);
+  color: var(--icon-color);
+  font-family: "Vazir", sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+header {
+  background-color: var(--cream-bg);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 30;
+}
+
+.menu-btn {
+  background: #096d2a;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 1.4rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  z-index: 31;
+}
+.menu-btn:hover {
+  transform: scale(1.1);
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-dark);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, backdrop-filter 0.5s ease;
+  z-index: 20;
+}
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* پس‌زمینه آیکون‌ها */
+.background-icons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.background-icons .bg-icon {
+  position: absolute;
+  width: 60px;
+  height: auto;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  animation: floatIcon 30s infinite ease-in-out;
+}
+@keyframes floatIcon {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+    opacity: 0.8;
+  }
+}
+
+/* منوی دایره‌ای */
+.menu-wrapper {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+}
+.circular-menu {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: transform 0.6s ease;
+}
+.circular-menu.active {
+  transform: scale(1);
+}
+.menu-center {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#close-menu {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #096d2a;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  pointer-events: auto;
+}
+#close-menu:hover {
+  transform: scale(1.1);
+}
+.menu-item {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: var(--cream-bg);
+  border: none;
+  color: var(--icon-color);
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transform: translate(0, 0) scale(0);
+  opacity: 0;
+  transition: all 0.6s ease;
+  pointer-events: auto;
+}
+.menu-item.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.menu-item:hover {
+  background-color: var(--active-color);
+  color: white;
+}
+
+/* انیمیشن چرخش خورشیدی */
+@keyframes rotateSun {
+  0% {
+    transform: rotate(0deg) scale(0);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes rotateSunReverse {
+  0% {
+    transform: rotate(360deg) scale(1);
+  }
+  100% {
+    transform: rotate(0deg) scale(0);
+  }
+}
+.circular-menu.sunrise {
+  animation: rotateSun 1.2s ease forwards;
+}
+.circular-menu.sunset {
+  animation: rotateSunReverse 1.2s ease forwards;
+}
+
+main.home {
+  flex: 1;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+/* مود شب */
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+body.dark header {
+  background-color: #333;
+}
+body.dark .background-icons .bg-icon {
+  opacity: 0.3;
+  filter: none;
+}
+
+@media (max-width: 600px) {
+  .circular-menu {
+    width: 250px;
+    height: 250px;
+  }
+  .menu-item {
+    width: 50px;
+    height: 50px;
+  }
+  #close-menu {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* 🍽️ استایل بخش دسته‌بندی غذاها */
+.food-categories {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: var(--cream-bg);
+  overflow: hidden;
+}
+
+.center-circle {
+  width: 300px;
+  height: 300px;
+  background-color: #096d2a;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+.center-circle h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.center-circle p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.learn-more {
+  background: white;
+  color: #096d2a;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.learn-more:hover {
+  background: #0b8236;
+  color: white;
+}
+
+/* حلقه‌ی بیرونی */
+.outer-circle {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateSlow 60s linear infinite;
+}
+
+.category {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.category:hover {
+  background-color: var(--active-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.icon-placeholder {
+  width: 55px;
+  height: 55px;
+  background: #eee;
+  border-radius: 50%;
+  margin-bottom: 0.4rem;
+}
+
+/* موقعیت دایره‌های کوچک دور مرکز */
+.category[data-name="irani"] {
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.category[data-name="farangi"] {
+  top: 22%;
+  right: 0%;
+  transform: translate(50%, 0);
+}
+.category[data-name="fingerfood"] {
+  bottom: 22%;
+  right: 0%;
+  transform: translate(50%, 0);
+}
+.category[data-name="salad"] {
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+.category[data-name="ash"] {
+  bottom: 22%;
+  left: 0%;
+  transform: translate(-50%, 0);
+}
+.category[data-name="dessert"] {
+  top: 22%;
+  left: 0%;
+  transform: translate(-50%, 0);
+}
+
+/* انیمیشن چرخش آرام */
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* حالت شب */
+body.dark .center-circle {
+  background-color: #0c4b1d;
+}
+body.dark .learn-more {
+  background-color: #0b8236;
+  color: white;
+}
+body.dark .outer-circle .category {
+  background-color: #333;
+  color: #eee;
+}
