@@ -1,0 +1,180 @@
+<!--IN THE NAME IF ALLAH-->
+<!--YA ALI YA ZAHRA-->
+
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>🍲 سایت دستور پخت غذا</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div id="overlay"></div>
+
+    <header>
+      <button id="menu-btn" class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="logo">🍽️ دستورپخت</div>
+    </header>
+
+    <!-- آیکون‌های پس‌زمینه 
+    <div class="background-icons">
+      <img
+        src="svg/pot-svgrepo-com (8).svg"
+        class="bg-icon"
+        style="top: 10%; left: 50%"
+      />
+      <img
+        src="svg/kitchen-board-board-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 20%; left: 75%"
+      />
+      <img
+        src="svg/kitchen-pack-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 40%; left: 90%"
+      />
+      <img
+        src="svg/kitchen-pack-cook-svgrepo-com (2).svg"
+        class="bg-icon"
+        style="top: 65%; left: 90%"
+      />
+      <img
+        src="svg/kitchen-pack-restaurant-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 80%; left: 75%"
+      />
+      <img
+        src="svg/kitchen-pack-cook-svgrepo-com (1).svg"
+        class="bg-icon"
+        style="top: 90%; left: 50%"
+      />
+      <img
+        src="svg/kitchen-pack-mix-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 80%; left: 25%"
+      />
+      <img
+        src="svg/kitchen-mixer-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 65%; left: 10%"
+      />
+      <img
+        src="svg/kitchen-fridge-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 40%; left: 5%"
+      />
+      <img
+        src="svg/kitchen-pack-spoon-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 20%; left: 20%"
+      />
+      <img
+        src="svg/kettle-coffee-pot-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 5%; left: 35%"
+      />
+      <img
+        src="svg/grater-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 5%; left: 65%"
+      />
+      <img
+        src="svg/food-hot-hotdog-kitchen-sausage-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 25%; left: 90%"
+      />
+      <img
+        src="svg/cutting-board-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 75%; left: 10%"
+      />
+      <img
+        src="svg/kitchen-pack-spoon-svgrepo-com.svg"
+        class="bg-icon"
+        style="top: 10%; left: 70%"
+      />
+    </div>  -->
+    <div class="menu-wrapper">
+      <div class="circular-menu" id="circleMenu">
+        <div class="menu-center">
+          <button id="close-menu"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <button class="menu-item" data-action="home">
+          <i class="fa-solid fa-house"></i>
+        </button>
+        <button class="menu-item" data-action="search">
+          <i class="fa-solid fa-search"></i>
+        </button>
+        <button class="menu-item" data-action="shop">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <button class="menu-item" data-action="contact">
+          <i class="fa-solid fa-phone"></i>
+        </button>
+        <button class="menu-item" data-action="profile">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <button class="menu-item" id="theme-toggle">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <main class="home">
+      <!-- 🍽️ بخش دسته‌بندی غذاها -->
+      <section class="food-categories">
+        <div class="center-circle">
+          <h2>دسته‌بندی غذاها</h2>
+          <p>انواع غذاهای خوشمزه را در دسته‌های مختلف جستجو کنید</p>
+          <button class="learn-more">مشاهده همه</button>
+        </div>
+
+        <div class="outer-circle">
+          <div class="category" data-name="irani">
+            <div class="icon-placeholder"></div>
+            <p>غذاهای ایرانی</p>
+          </div>
+
+          <div class="category" data-name="farangi">
+            <div class="icon-placeholder"></div>
+            <p>غذاهای فرنگی</p>
+          </div>
+
+          <div class="category" data-name="fingerfood">
+            <div class="icon-placeholder"></div>
+            <p>فینگر فود</p>
+          </div>
+
+          <div class="category" data-name="salad">
+            <div class="icon-placeholder"></div>
+            <p>سالادها</p>
+          </div>
+
+          <div class="category" data-name="ash">
+            <div class="icon-placeholder"></div>
+            <p>آش‌ها</p>
+          </div>
+
+          <div class="category" data-name="dessert">
+            <div class="icon-placeholder"></div>
+            <p>دسر و کیک</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    `
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
